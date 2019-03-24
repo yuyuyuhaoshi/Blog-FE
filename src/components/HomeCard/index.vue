@@ -5,7 +5,7 @@
         <card class="post-list" :title="postListTitle">
           <ul>
             <li class="post-list-item" v-for="(post, index) in postList" :key="index">
-              <a :href="post.url" class="h3">{{ post.name }}</a>
+              <a :href="post.url" class="h5">{{ post.name }}</a>
               <p class="content">{{ post.content }}</p>
               <p class="calendar"><img src="../../assets/calendar.svg"><span>&nbsp;&nbsp; {{ post.created_time }}</span></p>
             </li>
@@ -13,7 +13,31 @@
         </card>
       </div>
       <div class="right-wrapper col-4">
-        <card :title="categoryListTitle"></card>
+        <card class="category-list" :title="categoryListTitle">
+          <ul>
+            <li class="category-list-item" v-for="(category, index) in categoryList" :key="index">
+              <a :href="category.url" class="h5">{{ category.name }}</a>
+            </li>
+          </ul>
+        </card>
+        <card class="about-me" :title="aboutMeTile">
+          <table class="table table-borderless">
+            <tbody>
+              <tr>
+                <td class="h6">WeChat</td>
+                <td class="h6">zx1031583046</td>
+              </tr>
+              <tr>
+                <td class="h6">GitHub</td>
+                <td class="h6">yuyuyuhaoshi</td>
+              </tr>
+              <tr>
+                <td class="h6">Email</td>
+                <td class="h6">yuyuyuhaoshi@gmail.com</td>
+              </tr>
+            </tbody>
+          </table>
+        </card>
       </div>
     </div>
   </div>
@@ -50,7 +74,25 @@ export default {
         }
       ],
       postListTitle: "文章列表",
-      categoryListTitle: "分类"
+      categoryListTitle: "分类",
+      aboutMeTile: "关于我",
+      categoryList: [
+        {
+            "name": "From",
+            "url": "https://google.com",
+            "created_time": "2019"
+        },
+        {
+            "name": "Public",
+            "url": "https://google.com",
+            "created_time": "2019"
+        },
+        {
+            "name": "Guy",
+            "url": "https://google.com",
+            "created_time": "2019"
+        },
+      ]
     }
   },
 }
@@ -58,11 +100,12 @@ export default {
 
 <style scoped lang="scss">
   .home-card {
+    text-align: left;
     width: 100%;
     padding-left: 3rem;
     padding-right: 3rem;
   }
-  .post-list {
+  .post-list{
     text-align: left;
     .content {
       margin-top: 0.5rem;
@@ -80,6 +123,14 @@ export default {
     }
     .post-list-item {
       margin-bottom: 1.5rem;
+    }
+  }
+  .category-list-item {
+    margin-bottom: 0.5rem;
+  }
+  .about-me {
+    .table td {
+      padding-left: 0;
     }
   }
   @media (min-width: 576px) and (max-width: 767.99px) { 

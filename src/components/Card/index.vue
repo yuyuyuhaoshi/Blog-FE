@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">
-    <h2 class="title">{{ title }}</h2>
+    <h2 class="title h4">{{ title }}</h2>
     <hr>
     <div class="m-card-body">
       <slot></slot>
@@ -23,7 +23,6 @@ export default {
     .title {
       padding-left: 1rem;
       text-align: left;
-      font-size: 1rem;
     }
     .m-card-body {
       padding-left: 1rem;
